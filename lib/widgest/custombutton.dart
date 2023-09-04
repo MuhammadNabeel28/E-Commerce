@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce/constants/apps_color.dart';
 
 class CustomButton extends StatelessWidget {
   final double width;
@@ -32,10 +33,16 @@ class CustomButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
             ),
           ),
-          label: Text(buttonText),
-          icon: Icon(
-            icon,
+          label: Text(
+            buttonText,
+            style: TextStyle(
+              fontFamily: 'Manrope',
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
+              color: AppsColors.grey,
+            ),
           ),
+          icon: Icon(icon),
         ),
       ),
     );

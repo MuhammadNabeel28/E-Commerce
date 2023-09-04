@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/constants/apps_color.dart';
-import 'package:flutter_ecommerce/constants/appstext.dart';
 import 'package:flutter_ecommerce/utils/appsimages.dart';
 import 'package:flutter_ecommerce/view/home/page1.dart';
 import 'package:flutter_ecommerce/view/home/page2.dart';
+import 'package:flutter_ecommerce/widgest/custombutton.dart';
 
 class GetStart extends StatefulWidget {
   const GetStart({super.key});
@@ -42,115 +42,53 @@ class _GetStartState extends State<GetStart> {
               return _pages[index % _pages.length];
             },
           ),
-          // Container(
-          //   padding: const EdgeInsets.only(
-          //     top: 33,
-          //     left: 42,
-          //     right: 42,
-          //   ),
-          //   child: const Text(
-          //     AppsText.tagline,
-          //     style: TextStyle(
-          //       fontFamily: 'Manrope',
-          //       fontSize: 30,
-          //       fontWeight: FontWeight.w700,
-          //       color: AppsColors.white,
-          //     ),
-          //   ),
-          // ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   mainAxisSize: MainAxisSize.min,
-          //   children: [
-          //     Padding(
-          //       padding: EdgeInsets.only(
-          //         top: MediaQuery.of(context).size.height * 0.43,
-          //         left: 130,
-          //       ),
-          //     ),
-          //     Container(
-          //       decoration: const BoxDecoration(
-          //         image: DecorationImage(
-          //           image: AssetImage(
-          //             AppsImages.Smallhome,
-          //           ),
-          //           fit: BoxFit.cover,
-          //         ),
-          //       ),
-          //       height: 33.55,
-          //       width: 33,
-          //     ),
-          //   ],
-          // ),
-          // const SizedBox(
-          //   height: 10,
-          // ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.start,
-          //   children: [
-          //     Padding(
-          //       padding: EdgeInsets.only(
-          //         top: MediaQuery.of(context).size.height * 0.61,
-          //       ),
-          //     ),
-          //     Container(
-          //       padding: const EdgeInsets.only(
-          //         left: 42,
-          //       ),
-          //       child: const Text(
-          //         AppsText.tagline2,
-          //         style: TextStyle(
-          //           fontFamily: 'Manrope',
-          //           fontSize: 18,
-          //           fontWeight: FontWeight.w500,
-          //           color: AppsColors.grey,
-          //         ),
-          //       ),
-          //     ),
-          //   ],
-          // ),
-          // const SizedBox(
-          //   height: 5,
-          // ),
-          // // Row(
-          // //   children: [
-          // //     Container(),
-          // //   ],
-          // // ),
-          // // const SizedBox(
-          // //   height: 5,
-          // // ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //   mainAxisSize: MainAxisSize.min,
-          //   children: [
-          //     Column(
-          //       mainAxisAlignment: MainAxisAlignment.center,
-          //       //crossAxisAlignment: CrossAxisAlignment.center,
-          //       mainAxisSize: MainAxisSize.max,
-          //       children: [
-          //         Padding(
-          //           padding: EdgeInsets.only(
-          //             left: MediaQuery.of(context).size.width * 0.95,
-          //             top: 370,
-          //           ),
-          //         ),
-          //         Container(
-          //           decoration: const BoxDecoration(
-          //             image: DecorationImage(
-          //               image: AssetImage(
-          //                 AppsImages.getstartimage,
-          //               ),
-          //               fit: BoxFit.cover,
-          //             ),
-          //           ),
-          //           height: 200,
-          //           width: 250,
-          //         ),
-          //       ],
-          //     ),
-          //   ],
-          // )
+          Positioned(
+            bottom: 450,
+            left: 30,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: List<Widget>.generate(
+                _pages.length,
+                (index) => Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                  ),
+                  child: InkWell(
+                    radius: 30,
+                    focusColor: AppsColors.white,
+                    onTap: () {
+                      _pagecontroller.animateToPage(
+                        index,
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.easeIn,
+                      );
+                    },
+                    child: CircleAvatar(
+                      radius: 5,
+                      backgroundColor: active == index
+                          ? AppsColors.white
+                          : AppsColors.black45,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          const Positioned(
+            top: 720,
+            left: 50,
+            child: Row(
+              children: [
+                CustomButton(
+                  width: 0.7,
+                  height: 50,
+                  buttonText: 'Get Start',
+                  backgroundColor: AppsColors.white,
+                  icon: Icons.arrow_circle_right,
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );

@@ -46,7 +46,7 @@ class Page1 extends StatelessWidget {
                     decoration: const BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage(
-                          AppsImages.Smallhome,
+                          AppsImages.smallhome,
                         ),
                         fit: BoxFit.cover,
                       ),
@@ -72,11 +72,10 @@ class Page1 extends StatelessWidget {
                   top: 540,
                 ),
               ),
-              Container(
+              const SizedBox(
                 height: 100,
-                width: 500,
-                color: Colors.amber,
-                child: const Text(
+                width: 300,
+                child: Text(
                   AppsText.tagline2,
                   style: TextStyle(
                     fontFamily: 'Manrope',
@@ -87,7 +86,24 @@ class Page1 extends StatelessWidget {
                 ),
               ),
             ],
-          )
+          ),
+          // Row(
+          //   //mainAxisAlignment: MainAxisAlignment.end,
+          //   crossAxisAlignment: CrossAxisAlignment.end,
+          //   mainAxisSize: MainAxisSize.min,
+          //   children: [
+          //     Container(
+          //       decoration: const BoxDecoration(
+          //         image: DecorationImage(
+          //           image: AssetImage(
+          //             AppsImages.slidesmall,
+          //           ),
+          //           fit: BoxFit.cover,
+          //         ),
+          //       ),
+          //     ),
+          //   ],
+          // ),
         ],
       ),
     );
