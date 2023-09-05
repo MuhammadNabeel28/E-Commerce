@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce/constants/apps_color.dart';
 
 class CustomButton extends StatelessWidget {
   final double width;
@@ -7,6 +6,12 @@ class CustomButton extends StatelessWidget {
   final Color? backgroundColor;
   final String buttonText;
   final IconData? icon;
+  final double? iconSize;
+  final FontWeight? fontWeight;
+  final double? fontSize;
+  final Color? color;
+  final double? opticalSize;
+  final AlignmentGeometry alignment = Alignment.center;
 
   const CustomButton({
     super.key,
@@ -15,6 +20,12 @@ class CustomButton extends StatelessWidget {
     this.backgroundColor,
     required this.buttonText,
     this.icon,
+    this.iconSize,
+    this.fontWeight,
+    this.fontSize,
+    this.color,
+    this.opticalSize,
+    required Alignment alignment,
   });
 
   @override
@@ -37,12 +48,20 @@ class CustomButton extends StatelessWidget {
             buttonText,
             style: TextStyle(
               fontFamily: 'Manrope',
-              fontSize: 18,
-              fontWeight: FontWeight.w500,
-              color: AppsColors.grey,
+              fontWeight: fontWeight,
+              fontSize: fontSize,
+              color: color,
             ),
           ),
-          icon: Icon(icon),
+          icon: Align(
+            alignment: alignment,
+            child: Icon(
+              icon,
+              size: iconSize,
+              color: color,
+              opticalSize: opticalSize,
+            ),
+          ),
         ),
       ),
     );
