@@ -5,13 +5,14 @@ class CustomButton extends StatelessWidget {
   final double height;
   final Color? backgroundColor;
   final String buttonText;
-  final IconData? icon;
+  final String? icon;
   final double? iconSize;
   final FontWeight? fontWeight;
   final double? fontSize;
   final Color? color;
   final double? opticalSize;
   final AlignmentGeometry alignment = Alignment.center;
+  final TextDirection? textDirection;
 
   const CustomButton({
     super.key,
@@ -26,6 +27,7 @@ class CustomButton extends StatelessWidget {
     this.color,
     this.opticalSize,
     required Alignment alignment,
+    this.textDirection,
   });
 
   @override
@@ -33,35 +35,44 @@ class CustomButton extends StatelessWidget {
     return SizedBox(
       width: MediaQuery.of(context).size.width * width,
       height: height,
-      child: Directionality(
-        textDirection: TextDirection.rtl,
-        child: ElevatedButton.icon(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            backgroundColor: backgroundColor,
-            elevation: 5,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
+      child: ElevatedButton(
+        onPressed: () {},
+        style: ElevatedButton.styleFrom(
+          backgroundColor: backgroundColor,
+          elevation: 5,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
           ),
-          label: Text(
-            buttonText,
-            style: TextStyle(
-              fontFamily: 'Manrope',
-              fontWeight: fontWeight,
-              fontSize: fontSize,
-              color: color,
+        ),
+        child: Stack(
+          children: [
+            Container(
+              margin: const EdgeInsets.only(
+                left: 8,
+                // top: 4,
+              ),
+              child: Text(
+                buttonText,
+                style: TextStyle(
+                  fontFamily: 'Manrope',
+                  fontWeight: fontWeight,
+                  fontSize: fontSize,
+                  color: color,
+                ),
+              ),
             ),
-          ),
-          icon: Align(
-            alignment: alignment,
-            child: Icon(
-              icon,
-              size: iconSize,
-              color: color,
-              opticalSize: opticalSize,
+            Container(
+              margin: const EdgeInsets.only(
+                left: 170,
+                top: 4,
+              ),
+              child: Image.asset(
+                '$icon',
+                width: iconSize,
+                alignment: alignment,
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );
