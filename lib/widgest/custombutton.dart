@@ -13,6 +13,7 @@ class CustomButton extends StatelessWidget {
   final double? opticalSize;
   final AlignmentGeometry alignment = Alignment.center;
   final TextDirection? textDirection;
+  final Function()? onPressed;
 
   const CustomButton({
     super.key,
@@ -28,6 +29,7 @@ class CustomButton extends StatelessWidget {
     this.opticalSize,
     required Alignment alignment,
     this.textDirection,
+    this.onPressed,
   });
 
   @override
@@ -36,7 +38,9 @@ class CustomButton extends StatelessWidget {
       width: MediaQuery.of(context).size.width * width,
       height: height,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          onPressed;
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor: backgroundColor,
           elevation: 5,
