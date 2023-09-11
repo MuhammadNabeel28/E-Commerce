@@ -38,9 +38,7 @@ class CustomButton extends StatelessWidget {
       width: MediaQuery.of(context).size.width * width,
       height: height,
       child: ElevatedButton(
-        onPressed: () {
-          onPressed;
-        },
+        onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: backgroundColor,
           elevation: 5,
@@ -80,28 +78,5 @@ class CustomButton extends StatelessWidget {
         ),
       ),
     );
-
-    // return ElevatedButton(
-    //   onPressed: () {
-    //     print('Item added');
-    //   },
-    //   style: ElevatedButton.styleFrom(
-    //     backgroundColor: Colors.green,
-    //     elevation: 5,
-    //     shape: RoundedRectangleBorder(
-    //       borderRadius: BorderRadius.circular(10),
-    //     ),
-    //     padding: const EdgeInsets.symmetric(horizontal: 16),
-    //     minimumSize: const Size(10, 50),
-    //   ),
-    //   child: const Row(
-    //     mainAxisAlignment: MainAxisAlignment.start,
-    //     mainAxisSize: MainAxisSize.min,
-    //     children: [
-    //       Text('Item Add'),
-    //       Icon(Icons.add),
-    //     ],
-    //   ),
-    // );
   }
 }

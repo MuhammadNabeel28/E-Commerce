@@ -1,7 +1,11 @@
+import 'dart:developer';
+
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/constants/apps_color.dart';
 import 'package:flutter_ecommerce/utils/appsimages.dart';
+import 'package:flutter_ecommerce/view/category.dart';
+import 'package:flutter_ecommerce/view/home/homeview.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class BottomNavigation extends StatefulWidget {
@@ -24,7 +28,10 @@ class _BottomNavigationState extends State<BottomNavigation> {
     super.dispose();
   }
 
-  final List<Widget> bottomPage = [];
+  final List<Widget> bottomPage = [
+    const HomeView(),
+    const Category(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -42,21 +49,61 @@ class _BottomNavigationState extends State<BottomNavigation> {
           ? AnimatedNotchBottomBar(
               notchBottomBarController: _controller,
               color: AppsColors.white,
-              showLabel: false,
+              showLabel: true,
               notchColor: AppsColors.black,
               removeMargins: false,
               bottomBarWidth: 500,
               durationInMilliSeconds: 300,
-              bottomBarItems: [
+              bottomBarItems: const [
                 BottomBarItem(
-                  inActiveItem: const Icon(
+                  inActiveItem: Icon(
                     Icons.home_filled,
-                    color: Colors.blueGrey,
+                    color: AppsColors.black90,
                   ),
-                  activeItem: activeItem,
+                  activeItem: Icon(
+                    Icons.home_filled,
+                    color: AppsColors.yellow,
+                  ),
+                  itemLabel: 'Home',
+                ),
+                BottomBarItem(
+                  inActiveItem: Icon(
+                    Icons.category,
+                    color: AppsColors.black90,
+                  ),
+                  activeItem: Icon(
+                    Icons.category,
+                    color: AppsColors.yellow,
+                  ),
+                  itemLabel: 'Category',
+                ),
+                BottomBarItem(
+                  inActiveItem: Icon(
+                    Icons.favorite_outline_outlined,
+                    color: AppsColors.black90,
+                  ),
+                  activeItem: Icon(
+                    Icons.favorite_outline_outlined,
+                    color: AppsColors.yellow,
+                  ),
+                  itemLabel: 'Favorite',
+                ),
+                BottomBarItem(
+                  inActiveItem: Icon(
+                    Icons.more_vert,
+                    color: AppsColors.black90,
+                  ),
+                  activeItem: Icon(
+                    Icons.more_vert,
+                    color: AppsColors.yellow,
+                  ),
+                  itemLabel: 'More',
                 ),
               ],
-            )
+              onTap: (index) {
+                log('current selected index $index');
+                _pageController.jumpToPage(index);
+              })
           : null,
     );
   }

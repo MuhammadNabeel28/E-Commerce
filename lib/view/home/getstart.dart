@@ -74,7 +74,7 @@ class _GetStartState extends State<GetStart> {
               ),
             ),
           ),
-          const Positioned(
+          Positioned(
             top: 720,
             left: 50,
             child: Row(
@@ -90,6 +90,12 @@ class _GetStartState extends State<GetStart> {
                   icon: AppsImages.arrow,
                   iconSize: 16,
                   alignment: Alignment.centerRight,
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      "mainhomescreen",
+                    );
+                  },
                 ),
               ],
             ),

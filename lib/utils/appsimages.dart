@@ -4,5 +4,6 @@ class AppsImages {
   static const String slidesmall = 'assets/appassets/Line3.png';
   static const String slidebig = 'assets/appassets/Line1.png';
   static const String arrow = 'assets/appassets/Arrow 4.png';
-  static const String bottomHome = 'assets/appassets/home.svg';
+  static const String bottomHome = 'assets/appassets/home.png';
+  static const String bottomHomeInactive = 'assets/appassets/home_white.png';
 }
