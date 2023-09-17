@@ -38,7 +38,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
     return Scaffold(
       body: PageView(
         controller: _pageController,
-        //physics: const NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         children: List.generate(
           bottomPage.length,
           (index) => bottomPage[index],
