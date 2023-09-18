@@ -64,39 +64,105 @@ class _HomeViewState extends State<HomeView> {
               ),
             ],
           ),
-          flexibleSpace: Stack(
+          flexibleSpace: Column(
+            //mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
                 margin: const EdgeInsets.only(
-                  top: 90,
+                  top: 100,
+                  //left: 20,
                 ),
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20.0,
-                ),
-                child: Expanded(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      suffixIcon: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.clear_all,
-                        ),
+                height: 50,
+                width: 340,
+                child: TextField(
+                  decoration: InputDecoration(
+                    suffixIcon: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.clear_all,
                       ),
-                      prefixIcon: IconButton(
-                        onPressed: () {},
-                        icon: SvgPicture.asset(
-                          AppsSvgIcon.serchIcon,
-                        ),
+                    ),
+                    prefixIcon: IconButton(
+                      onPressed: () {},
+                      icon: SvgPicture.asset(
+                        AppsSvgIcon.serchIcon,
                       ),
-                      hintText: 'Search...',
-                      hoverColor: const Color(153075),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(
-                          60.5,
-                        ),
+                    ),
+                    hintText: 'Search...',
+                    hoverColor: const Color(0x000255f3),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(
+                        28.5,
                       ),
                     ),
                   ),
+                ),
+              ),
+              Expanded(
+                child: Row(
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.only(
+                        top: 10,
+                        //right: ,
+                        left: 5,
+                        //bottom: 11,
+                      ),
+                      height: 30,
+                      width: 90,
+                      child: const Text(
+                        'DELIVERY TO',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w700,
+                          color: AppsColors.beigh,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        margin: const EdgeInsets.only(
+                          top: 30,
+                          right: 100,
+
+                          left: 5,
+                          //bottom: 11,
+                        ),
+                        height: 50,
+                        width: 400,
+                        child: const Text(
+                          'Green Way 3000, Sylhet',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            color: AppsColors.beigh,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.only(
+                        //top: 2,
+                        left: 200,
+                        bottom: 5,
+                      ),
+                      height: 50,
+                      width: 90,
+                      child: const Text(
+                        'Green Way',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w700,
+                          color: AppsColors.beigh,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],
