@@ -69,7 +69,7 @@ class _HomeViewState extends State<HomeView> {
             children: [
               Container(
                 margin: const EdgeInsets.only(
-                  top: 100,
+                  top: 130,
                   //left: 20,
                 ),
                 height: 50,
@@ -103,62 +103,34 @@ class _HomeViewState extends State<HomeView> {
                   children: [
                     Container(
                       margin: const EdgeInsets.only(
-                        top: 10,
+                        top: 20,
                         //right: ,
                         left: 5,
+
                         //bottom: 11,
                       ),
-                      height: 30,
-                      width: 90,
+                      height: 120,
+                      width: 150,
                       child: const Text(
-                        'DELIVERY TO',
+                        'DELIVERY TO Green Way 3000, Sylhet',
                         style: TextStyle(
                           fontWeight: FontWeight.w700,
                           color: AppsColors.beigh,
-                          fontSize: 12,
+                          fontSize: 13,
                         ),
                       ),
                     ),
-                    Expanded(
-                      child: Container(
-                        margin: const EdgeInsets.only(
-                          top: 30,
-                          right: 100,
-
-                          left: 5,
-                          //bottom: 11,
-                        ),
-                        height: 50,
-                        width: 400,
-                        child: const Text(
-                          'Green Way 3000, Sylhet',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w700,
-                            color: AppsColors.beigh,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
                     Container(
                       margin: const EdgeInsets.only(
-                        //top: 2,
-                        left: 200,
-                        bottom: 5,
+                        left: 150,
+                        top: 5,
                       ),
-                      height: 50,
-                      width: 90,
                       child: const Text(
                         'Green Way',
                         style: TextStyle(
                           fontWeight: FontWeight.w700,
                           color: AppsColors.beigh,
+                          fontSize: 13,
                         ),
                       ),
                     ),
@@ -169,14 +141,15 @@ class _HomeViewState extends State<HomeView> {
           ),
         ),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      body: Row(
         mainAxisSize: MainAxisSize.max,
         children: [
-          Container(
-            height: 200,
-            width: 200,
-            color: Colors.amber,
+          Expanded(
+            child: Container(
+              height: 200,
+              width: 200,
+              color: Colors.amber,
+            ),
           ),
         ],
       ),
