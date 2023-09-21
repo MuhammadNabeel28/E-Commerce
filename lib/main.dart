@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       routes: {
         "/": (context) => const GetStart(),
-        "mainhomescreen": (context) => const BottomNavigation(),
+        "/mainhomescreen": (context) => const BottomNavigation(),
       },
     );
   }

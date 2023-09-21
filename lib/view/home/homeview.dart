@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce/constants/apps_color.dart';
 import 'package:flutter_ecommerce/utils/appsimages.dart';
+import 'package:flutter_ecommerce/utils/item_class.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class HomeView extends StatefulWidget {
@@ -65,7 +66,6 @@ class _HomeViewState extends State<HomeView> {
             ],
           ),
           flexibleSpace: Column(
-            //mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
                 margin: const EdgeInsets.only(
@@ -141,17 +141,43 @@ class _HomeViewState extends State<HomeView> {
           ),
         ),
       ),
-      body: Row(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Expanded(
-            child: Container(
-              height: 200,
-              width: 200,
-              color: Colors.amber,
+      body: ListView.builder(
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        itemCount: ListItem.Item.length,
+        itemBuilder: (BuildContext context, int index) {
+          return SingleChildScrollView(
+            //scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                Card(
+                  elevation: 5,
+                  margin: const EdgeInsets.all(10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Container(
+                        height: 150,
+                        width: 150,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: NetworkImage(
+                              ListItem.Item[index]['Image'],
+                            ),
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        child: Text(
+                          ListItem.Item[index]['ProductName'],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-          ),
-        ],
+          );
+        },
       ),
     );
   }

@@ -93,7 +93,7 @@ class _GetStartState extends State<GetStart> {
                   onPressed: () {
                     Navigator.pushNamed(
                       context,
-                      "mainhomescreen",
+                      "/mainhomescreen",
                     );
                   },
                 ),
