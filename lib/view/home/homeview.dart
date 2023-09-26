@@ -144,32 +144,72 @@ class _HomeViewState extends State<HomeView> {
       body: ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
-        itemCount: ListItem.Item.length,
+        itemCount: ListItem.item.length,
         itemBuilder: (BuildContext context, int index) {
           return SingleChildScrollView(
             //scrollDirection: Axis.horizontal,
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Card(
+                  color: AppsColors.yellow,
                   elevation: 5,
                   margin: const EdgeInsets.all(10),
+                  semanticContainer: true,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(
+                      20,
+                    ),
+                  ),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Container(
-                        height: 150,
-                        width: 150,
+                        margin: const EdgeInsets.only(
+                          left: 7,
+                        ),
+                        height: 123,
+                        width: 160,
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             image: NetworkImage(
-                              ListItem.Item[index]['Image'],
+                              ListItem.item[index]['Image'],
                             ),
-                            fit: BoxFit.fill,
+                            fit: BoxFit.scaleDown,
+                            filterQuality: FilterQuality.high,
+                            alignment: Alignment.centerLeft,
+                          ),
+                          color: AppsColors.yellow,
+                          borderRadius: BorderRadius.circular(
+                            10,
                           ),
                         ),
-                        child: Text(
-                          ListItem.Item[index]['ProductName'],
-                        ),
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            margin: const EdgeInsets.only(
+                              bottom: 48,
+                              right: 30,
+                            ),
+                            child: const Text(
+                              'Get',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 25,
+                                color: AppsColors.white,
+                              ),
+                            ),
+                          ),
+                          const Text(
+                            'Get',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 25,
+                              color: AppsColors.white,
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
+                        ],
                       ),
                     ],
                   ),
