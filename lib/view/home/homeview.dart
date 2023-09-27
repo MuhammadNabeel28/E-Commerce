@@ -168,7 +168,7 @@ class _HomeViewState extends State<HomeView> {
                           left: 7,
                         ),
                         height: 123,
-                        width: 160,
+                        width: 130,
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             image: NetworkImage(
@@ -184,31 +184,48 @@ class _HomeViewState extends State<HomeView> {
                           ),
                         ),
                       ),
-                      Row(
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        // mainAxisSize: MainAxisSize.min,
                         children: [
-                          Container(
-                            margin: const EdgeInsets.only(
-                              bottom: 48,
-                              right: 30,
-                            ),
-                            child: const Text(
-                              'Get',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 25,
-                                color: AppsColors.white,
+                          Row(
+                            children: [
+                              Container(
+                                margin: const EdgeInsets.only(
+                                  right: 10,
+                                ),
+                                child: Text(
+                                  ListItem.item[index]['ProductName'],
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 21,
+                                    color: AppsColors.white,
+                                  ),
+                                ),
                               ),
-                            ),
+                            ],
                           ),
-                          const Text(
-                            'Get',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 25,
-                              color: AppsColors.white,
-                            ),
-                            textAlign: TextAlign.left,
-                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Container(
+                                margin: const EdgeInsets.only(
+                                  top: 15,
+                                  right: 50,
+                                  bottom: 25,
+                                ),
+                                child: Text(
+                                  ListItem.item[index]['Discount'],
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 15,
+                                    color: AppsColors.white,
+                                  ),
+                                  textAlign: TextAlign.left,
+                                ),
+                              ),
+                            ],
+                          )
                         ],
                       ),
                     ],
